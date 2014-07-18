@@ -14,5 +14,20 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		<action name="getWifiList" class="com.wifihi.terminalServerAction.WifiAction" method="rtnWifiList">
+			<result name="success" type="json">
+				<param name="root">wifiList</param>
+			</result>
+		</action> 
+		<action name="getWifi" class="com.wifihi.terminalServerAction.WifiAction" method="rtnWifi">
+			<result name="success" type="json">
+				<param name="root">wifi</param>
+			</result>
+		    </action> 
+		    <action name="getAuthorise" class="com.wifihi.terminalServerAction.WifiAction" method="rtnAuthorise">
+			<result name="success" type="json">
+				<param name="root">wifi</param>
+			</result>
+		    </action> 
 	</package>
 </struts>

@@ -3,7 +3,6 @@ package com.wifihi.terminalServerAction;
 import javax.servlet.http.HttpServletRequest;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.wifihi.persistance.HibernateSessionFactory;
 import com.wifihi.persistance.User;
 import com.wifihi.terminalServerService.LoginResultString;
 
@@ -11,7 +10,6 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.json.JSONObject;
 
