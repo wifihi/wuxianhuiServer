@@ -38,19 +38,22 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		result = new LoginResultString();
 		try{
 				session.beginTransaction();
-				Query q = session.createQuery("from user where phonenumber=:'"+tel+"'"); 
+			
+				Query q = session.createQuery("from User where phonenumber=:tel"); 
+				q.setParameter("tel",tel);
 				user = (User) q.uniqueResult();
-				if(user.getPassword()==passwd){
+				if(user==null){
+					result.setResult("err10003");
+				}
+			//	user = (User)session.createQuery("from user where phonenumber='"+tel+"'");
+				
+				if(user.getPassword().equals(passwd)){
 					result.setResult(user.getUserId().toString());
 				}
 				else if(!user.getPassword().equals(passwd)){
 					result.setResult("err10002");
 				}
-				else{
-					result.setResult("err10003");
-				}
 		}catch(Exception e){
-			//System.out.println("aaaaa ");
 			session.getTransaction().rollback();
 		}finally{
 			session.close();
@@ -66,5 +69,4 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	public void setResult(LoginResultString result) {
 		this.result = result;
 	}
-	
 }
