@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.json.JSONObject;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -21,7 +22,6 @@ public class RegisterAction extends ActionSupport implements ServletRequestAware
 	private static final long serialVersionUID = 1L;
 	private String reqContent = null;
 	private IDString id;
-
 
 	public IDString getId() {
 		return id;
@@ -49,9 +49,10 @@ public class RegisterAction extends ActionSupport implements ServletRequestAware
 		id= new IDString();
 		Session session = HibernateSessionFactory.getSession();
 		try{
-			session.beginTransaction();
+			Transaction trans = session.beginTransaction();
 			session.save(user);	
 			id.setId(user.getUserId().toString());
+			trans.commit();
 		}catch(Exception e){
 			session.getTransaction().rollback();
 		}

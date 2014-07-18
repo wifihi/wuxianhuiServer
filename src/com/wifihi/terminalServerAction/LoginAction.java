@@ -8,7 +8,11 @@ import com.wifihi.persistance.User;
 import com.wifihi.terminalServerService.LoginResultString;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.json.JSONObject;
 
 
@@ -24,17 +28,19 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	}
 	
 	public String userLoginCheck(){
+		Configuration conf = new Configuration().configure();
+		SessionFactory sf = conf.buildSessionFactory();
 		JSONObject json = new JSONObject(this.reqContent);
 		String tel=json.getString("tel");
 		String passwd=json.getString("passwd");
 		User user = new User(); 
-		Session session = HibernateSessionFactory.getSession();
+		Session session = sf.openSession();
 		result = new LoginResultString();
 		try{
 				session.beginTransaction();
-				//濮濄倕顦垫担璺ㄦ暏HQL 娴ｅ棜绻曢崣顖欎簰閺堝鐨濈憗鍛畱閺囨潙銈介惃鍕煙濞夛拷
-				user = (User)session.createQuery("from user u where u.phonenumber ='"+tel+"'");
-				if(user.getPassword().equals(passwd)){
+				Query q = session.createQuery("from user where phonenumber=:'"+tel+"'"); 
+				user = (User) q.uniqueResult();
+				if(user.getPassword()==passwd){
 					result.setResult(user.getUserId().toString());
 				}
 				else if(!user.getPassword().equals(passwd)){
@@ -44,6 +50,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 					result.setResult("err10003");
 				}
 		}catch(Exception e){
+			//System.out.println("aaaaa ");
 			session.getTransaction().rollback();
 		}finally{
 			session.close();

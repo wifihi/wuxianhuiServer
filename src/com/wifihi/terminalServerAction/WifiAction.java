@@ -19,27 +19,15 @@ import com.wifihi.persistance.Wifimanage;
 
 public class WifiAction extends ActionSupport implements ServletRequestAware{
 	private static final long serialVersionUID = 1L;
-	 
 	private String reqContent = null;
+ 	private Wifimanage wifi;
 	
-	private Wifimanage wifi;
-	private List<Wifimanage> wifiList;
-
-	public List<Wifimanage> getWifiList()
-	{
-		return this.wifiList;
-	}
-	public void setWifiList(List<Wifimanage> wifiList)
-	{
-		this.wifiList=wifiList;
-	}
-	
+	//鉴权
 	public String rtnAuthorise(){
 		JSONObject json = new JSONObject(this.reqContent);
 		String ssid = json.getString("SSID");
 		System.out.println("ssid :"+ssid);
-	//	String sql = "select WifiName,Password,Authorise from wifimanage where WifiName='" + ssid+"'";
-	//	Statement stmt = DBOperate.getDBOperate().getStatement();
+	
 		Session session = HibernateSessionFactory.getSession();
 		wifi = new Wifimanage();
 		try{
@@ -55,15 +43,9 @@ public class WifiAction extends ActionSupport implements ServletRequestAware{
 		}
 		return SUCCESS;
 	}
+
+    //返回用户名密码
 	public String rtnWifi(){
-		if(this.reqContent.trim().equals("") || this.reqContent.charAt(0) != '{'){//what is reqContent
-			wifi = new Wifi();
-			wifi.setSSID("no");
-			wifi.setSSID("no");
-			 
-			return SUCCESS;
-		}
-		
 		JSONObject json = new JSONObject(this.reqContent);
 		String ssid = json.getString("SSID");
 		String sql = "select * from wifiinfo where ssid=" + ssid;
@@ -88,19 +70,8 @@ public class WifiAction extends ActionSupport implements ServletRequestAware{
 		}
 		return SUCCESS;
 	}
-	
+	//return wifilist
 	public String rtnWifiList(){
-		if(this.reqContent.trim().equals("") || this.reqContent.charAt(0) != '['){
-			wifiList = new ArrayList<>();
-			wifi = new Wifi();
-			wifi.setSSID("no"); 
-			wifi.setPasswd("no");
-			/*person.setBirthday("no");
-			person.setGender("no");
-			personList.add(person);*/
-			return SUCCESS;
-		}
-		
 		JSONArray jsonArray = new JSONArray(this.reqContent);
 		String[] ssids = new String[jsonArray.length()];
 		for(int i = 0; i < jsonArray.length(); i++){
@@ -135,6 +106,22 @@ public class WifiAction extends ActionSupport implements ServletRequestAware{
 	public void setServletRequest(HttpServletRequest arg0) {
 		this.reqContent = RequestJsonContent.getJsonContent(arg0);
 		System.out.println("reqContent: " + reqContent);//多个jsion对象
+	}
+	public Wifimanage getWifi() {
+		return wifi;
+	}
+	public void setWifi(Wifimanage wifi) {
+		this.wifi = wifi;
+	}
+	private List<Wifimanage> wifiList;
+
+	public List<Wifimanage> getWifiList()
+	{
+		return this.wifiList;
+	}
+	public void setWifiList(List<Wifimanage> wifiList)
+	{
+		this.wifiList=wifiList;
 	}
 	
 }
