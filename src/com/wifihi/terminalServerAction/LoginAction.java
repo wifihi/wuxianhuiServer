@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.wifihi.persistance.User;
+import com.wifihi.terminalServerService.IDString;
 import com.wifihi.terminalServerService.LoginResultString;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -17,8 +18,10 @@ import org.json.JSONObject;
 public class LoginAction extends ActionSupport implements ServletRequestAware{
 	private static final long serialVersionUID = 1L;
 	private String reqContent = null;
-	private LoginResultString result;
+	private IDString id;
 	
+
+
 	@Override
 	public void setServletRequest(HttpServletRequest arg0) {   //閼惧嘲绶辨潻娆愵偧鐠囬攱鐪伴惃鍓卐quest鐎电钖�
 		this.reqContent = GetRequestAction.getJsonContent(arg0);  //static method getJsonContent no new
@@ -33,7 +36,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		String passwd=json.getString("passwd");
 		User user = new User(); 
 		Session session = sf.openSession();
-		result = new LoginResultString();
+		id = new IDString();
 		try{
 				session.beginTransaction();
 			
@@ -41,15 +44,15 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 				q.setParameter("tel",tel);
 				user = (User) q.uniqueResult();
 				if(user==null){
-					result.setResult("err10003");
+					id.setId("err10003");
 				}
 			//	user = (User)session.createQuery("from user where phonenumber='"+tel+"'");
 				
 				if(user.getPassword().equals(passwd)){
-					result.setResult(user.getUserId().toString());
+					id.setId(user.getUserId().toString());
 				}
 				else if(!user.getPassword().equals(passwd)){
-					result.setResult("err10002");
+					id.setId("err10002");
 				}
 		}catch(Exception e){
 			session.getTransaction().rollback();
@@ -57,14 +60,15 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 			session.close();
 		}
 		
-		System.out.println(result.getResult());
+	//	System.out.println(id.getId());
 		return SUCCESS;
 	}
-	public LoginResultString getResult() {
-		return result;
+	public IDString getId() {
+		return id;
 	}
 
-	public void setResult(LoginResultString result) {
-		this.result = result;
+	public void setId(IDString id) {
+		this.id = id;
 	}
+
 }
