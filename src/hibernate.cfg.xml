@@ -15,6 +15,17 @@
 		</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">123456</property>
+		<!--指定连接池里最大连接数 -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<!--指定连接池里最小连接数 -->
+		<property name="hibernate.c3p0.min_size">1</property>
+		<!-- 指定连接池里连接的超时时长-->
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<!-- 指定连接池里最大缓存多少个Statement对象 -->
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3pp0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.validate">true</property>
 		<property name="hibernate.show_sql">true </property> 
 		<property name="format_sql">true</property>
 		<property name="connection.driver_class">
