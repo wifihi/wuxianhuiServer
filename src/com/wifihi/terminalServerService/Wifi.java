@@ -10,7 +10,38 @@ public class Wifi implements Serializable{
 	private String mac;
 	private String passwd;
 	private boolean Authorise;
+	private String wifiname;
+	private String wspusername;
+	private String displayname;
 	
+	public String getWspusername() {
+		return wspusername;
+	}
+
+	public void setWspusername(String wspusername) {
+		this.wspusername = wspusername;
+	}
+
+	public String getDisplayname() {
+		return displayname;
+	}
+
+	public void setDisplayname(String displayname) {
+		this.displayname = displayname;
+	}
+
+
+
+	
+
+	public String getWifiname() {
+		return wifiname;
+	}
+
+	public void setWifiname(String wifiname) {
+		this.wifiname = wifiname;
+	}
+
 	public boolean isAuthorise() {
 		return Authorise;
 	}
@@ -40,7 +71,7 @@ public class Wifi implements Serializable{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Wifi["+this.mac+","+this.passwd+","+this.Authorise+"]";
+		return "Wifi["+this.wspusername+","+this.wifiname+","+this.mac+","+this.passwd+","+this.Authorise+"'"+this.displayname+"]";
 		
 	}
 
