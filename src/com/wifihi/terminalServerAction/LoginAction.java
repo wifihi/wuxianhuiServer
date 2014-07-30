@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import com.opensymphony.xwork2.ActionSupport;
 import com.wifihi.persistance.User;
 import com.wifihi.terminalServerService.IDString;
-import com.wifihi.terminalServerService.LoginResultString;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.hibernate.Query;
