@@ -36,5 +36,13 @@
 	<classpathentry kind="lib" path="E:/资料/无线慧/Wuxianhui/Wuxianhui/WebContent/WEB-INF/lib/xwork-core-2.3.4.jar"/>
 	<classpathentry kind="lib" path="E:/资料/Java/api/SSH/struts-2.3.15.1-all/struts-2.3.15.1/lib/commons-logging-api-1.1.jar"/>
 	<classpathentry kind="lib" path="E:/资料/Java/api/SSH/SSH/c3p0-0.9.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-client-3.1.2/jpush-client-3.1.2.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-api-java-client-master/jpush-api-java-client-master/libs/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-api-java-client-master/jpush-api-java-client-master/libs/guava-17.0.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-api-java-client-master/jpush-api-java-client-master/libs/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-api-java-client-master/jpush-api-java-client-master/libs/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-api-java-client-master/jpush-api-java-client-master/libs/mockwebserver-1.5.4.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-api-java-client-master/jpush-api-java-client-master/libs/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="E:/资料/无线慧/opefire/jpush-api-java-client-master/jpush-api-java-client-master/libs/slf4j-log4j12-1.7.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
