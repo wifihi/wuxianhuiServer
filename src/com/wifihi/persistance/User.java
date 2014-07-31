@@ -22,11 +22,11 @@ public class User extends AbstractUser implements java.io.Serializable {
 
 	/** full constructor */
 	public User(String phoneNumber, Long qqnumber, String userName,
-			Date registrateDate, Time registrateTime, String password,
+			Date registrateDate, Time registrateTime, String password,String showInfo,
 			Set userwifivisitinghistories, Set uservisitingsystemhistories,
 			Set ordermanages) {
 		super(phoneNumber, qqnumber, userName, registrateDate, registrateTime,
-				password, userwifivisitinghistories,
+				password,showInfo, userwifivisitinghistories,
 				uservisitingsystemhistories, ordermanages);
 	}
 

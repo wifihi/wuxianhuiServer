@@ -21,6 +21,7 @@ public abstract class AbstractUser implements java.io.Serializable {
 	private Date registrateDate;
 	private Time registrateTime;
 	private String password;
+	private String showInfo;
 	private Set userwifivisitinghistories = new HashSet(0);
 	private Set uservisitingsystemhistories = new HashSet(0);
 	private Set ordermanages = new HashSet(0);
@@ -38,7 +39,7 @@ public abstract class AbstractUser implements java.io.Serializable {
 
 	/** full constructor */
 	public AbstractUser(String phoneNumber, Long qqnumber, String userName,
-			Date registrateDate, Time registrateTime, String password,
+			Date registrateDate, Time registrateTime, String password,String showInfo,
 			Set userwifivisitinghistories, Set uservisitingsystemhistories,
 			Set ordermanages) {
 		this.phoneNumber = phoneNumber;
@@ -47,6 +48,7 @@ public abstract class AbstractUser implements java.io.Serializable {
 		this.registrateDate = registrateDate;
 		this.registrateTime = registrateTime;
 		this.password = password;
+		this.showInfo = showInfo;
 		this.userwifivisitinghistories = userwifivisitinghistories;
 		this.uservisitingsystemhistories = uservisitingsystemhistories;
 		this.ordermanages = ordermanages;

@@ -29,5 +29,10 @@
 				<param name="root">wifi</param>
 			</result>
 		    </action> 
+		<action name="messagePush" class="com.wifihi.terminalServerAction.PushMessageAction" method="PushMessage">
+			<result name="success" type="json">
+				<param name="root">pushMessageResult</param>
+			</result>
+		</action> 
 	</package>
 </struts>
