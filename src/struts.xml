@@ -34,5 +34,10 @@
 				<param name="root">pushMessageResult</param>
 			</result>
 		</action> 
+		<action name="showMenuInfo" class="com.wifihi.terminalServerAction.ShowMenu" method="wspShowMenu">
+			<result name="success" type="json">
+				<param name="root">info</param>
+			</result>
+		</action> 
 	</package>
 </struts>

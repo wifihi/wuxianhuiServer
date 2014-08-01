@@ -27,6 +27,15 @@ public abstract class AbstractWspuser implements java.io.Serializable {
 	private String district;
 	private String detailAddress;
 	private String password;
+	private String showinfo;
+	public String getShowinfo() {
+		return showinfo;
+	}
+
+	public void setShowinfo(String showinfo) {
+		this.showinfo = showinfo;
+	}
+
 	private Set menuusers = new HashSet(0);
 	private Set wifimanages = new HashSet(0);
 	private Set goodsmanages = new HashSet(0);
@@ -50,7 +59,7 @@ public abstract class AbstractWspuser implements java.io.Serializable {
 	public AbstractWspuser(String phoneNumber, Long qqnumber, String userName,
 			Date registrateDate, Time registrateTime, String email,
 			String country, String province, String city, String district,
-			String detailAddress, String password, Set menuusers,
+			String detailAddress, String password, String showinfo,Set menuusers,
 			Set wifimanages, Set goodsmanages, Set wspuservisithistories,
 			Set ordermanages, Set orderdetails, Set tablemanages) {
 		this.phoneNumber = phoneNumber;
@@ -65,6 +74,7 @@ public abstract class AbstractWspuser implements java.io.Serializable {
 		this.district = district;
 		this.detailAddress = detailAddress;
 		this.password = password;
+		this.showinfo = showinfo;
 		this.menuusers = menuusers;
 		this.wifimanages = wifimanages;
 		this.goodsmanages = goodsmanages;
