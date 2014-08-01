@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-7-30 17:17:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.wifihi.persistance.AbstractOrderdetail" table="ABSTRACTORDERDETAIL" abstract="true">
+        <id name="detailId" type="java.lang.Long">
+            <column name="DETAILID" />
+            <generator class="assigned" />
+        </id>
+        <discriminator type="string">
+            <column name="DISCR_COL" />
+        </discriminator>
+        <many-to-one name="goodsmanage" class="com.wifihi.persistance.Goodsmanage" fetch="join">
+            <column name="GOODSMANAGE" />
+        </many-to-one>
+        <many-to-one name="wspuser" class="com.wifihi.persistance.Wspuser" fetch="join">
+            <column name="WSPUSER" />
+        </many-to-one>
+        <many-to-one name="ordermanage" class="com.wifihi.persistance.Ordermanage" fetch="join">
+            <column name="ORDERMANAGE" />
+        </many-to-one>
+        <property name="number" type="java.lang.Integer">
+            <column name="NUMBER" />
+        </property>
+        <set name="goodsmanages" table="ABSTRACTORDERDETAIL" inverse="false" lazy="true">
+            <key>
+                <column name="DETAILID" />
+            </key>
+            <element type="string">
+                <column name="GOODSMANAGES" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>

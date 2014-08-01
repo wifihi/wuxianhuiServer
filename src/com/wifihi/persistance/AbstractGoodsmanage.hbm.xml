@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-7-30 17:17:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.wifihi.persistance.AbstractGoodsmanage" table="ABSTRACTGOODSMANAGE" abstract="true">
+        <id name="goodsId" type="java.lang.Long">
+            <column name="GOODSID" />
+            <generator class="assigned" />
+        </id>
+        <discriminator type="string">
+            <column name="DISCR_COL" />
+        </discriminator>
+        <many-to-one name="orderdetail" class="com.wifihi.persistance.Orderdetail" fetch="join">
+            <column name="ORDERDETAIL" />
+        </many-to-one>
+        <many-to-one name="goodstype" class="com.wifihi.persistance.Goodstype" fetch="join">
+            <column name="GOODSTYPE" />
+        </many-to-one>
+        <many-to-one name="wspuser" class="com.wifihi.persistance.Wspuser" fetch="join">
+            <column name="WSPUSER" />
+        </many-to-one>
+        <property name="goodsName" type="java.lang.String">
+            <column name="GOODSNAME" />
+        </property>
+        <property name="unit" type="java.lang.String">
+            <column name="UNIT" />
+        </property>
+        <property name="price" type="java.lang.Integer">
+            <column name="PRICE" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="picture" type="java.lang.String">
+            <column name="PICTURE" />
+        </property>
+        <property name="consumedTimes" type="java.lang.Integer">
+            <column name="CONSUMEDTIMES" />
+        </property>
+        <set name="orderdetails" table="ABSTRACTGOODSMANAGE" inverse="false" lazy="true">
+            <key>
+                <column name="GOODSID" />
+            </key>
+            <element type="string">
+                <column name="ORDERDETAILS" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>

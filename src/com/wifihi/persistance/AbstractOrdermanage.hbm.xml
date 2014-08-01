@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-7-30 17:17:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.wifihi.persistance.AbstractOrdermanage" table="ABSTRACTORDERMANAGE" abstract="true">
+        <id name="orderId" type="java.lang.Long">
+            <column name="ORDERID" />
+            <generator class="assigned" />
+        </id>
+        <discriminator type="string">
+            <column name="DISCR_COL" />
+        </discriminator>
+        <many-to-one name="wspuser" class="com.wifihi.persistance.Wspuser" fetch="join">
+            <column name="WSPUSER" />
+        </many-to-one>
+        <many-to-one name="user" class="com.wifihi.persistance.User" fetch="join">
+            <column name="USER" />
+        </many-to-one>
+        <many-to-one name="tablemanage" class="com.wifihi.persistance.Tablemanage" fetch="join">
+            <column name="TABLEMANAGE" />
+        </many-to-one>
+        <property name="orderDate" type="java.util.Date">
+            <column name="ORDERDATE" />
+        </property>
+        <property name="orderTime" type="java.sql.Time">
+            <column name="ORDERTIME" />
+        </property>
+        <property name="expenditure" type="java.lang.Float">
+            <column name="EXPENDITURE" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <set name="orderdetails" table="ABSTRACTORDERMANAGE" inverse="false" lazy="true">
+            <key>
+                <column name="ORDERID" />
+            </key>
+            <element type="string">
+                <column name="ORDERDETAILS" />
+            </element>
+        </set>
+        <set name="tablemanages" table="ABSTRACTORDERMANAGE" inverse="false" lazy="true">
+            <key>
+                <column name="ORDERID" />
+            </key>
+            <element type="string">
+                <column name="TABLEMANAGES" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>

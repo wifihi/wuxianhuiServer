@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-7-30 17:17:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.wifihi.persistance.AbstractUser" table="ABSTRACTUSER" abstract="true">
+        <id name="userId" type="java.lang.Long">
+            <column name="USERID" />
+            <generator class="assigned" />
+        </id>
+        <discriminator type="string">
+            <column name="DISCR_COL" />
+        </discriminator>
+        <property name="phoneNumber" type="java.lang.String">
+            <column name="PHONENUMBER" />
+        </property>
+        <property name="qqnumber" type="java.lang.Long">
+            <column name="QQNUMBER" />
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="registrateDate" type="java.util.Date">
+            <column name="REGISTRATEDATE" />
+        </property>
+        <property name="registrateTime" type="java.sql.Time">
+            <column name="REGISTRATETIME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="showInfo" type="java.lang.String" access="field">
+            <column name="SHOWINFO" />
+        </property>
+        <set name="userwifivisitinghistories" table="ABSTRACTUSER" inverse="false" lazy="true">
+            <key>
+                <column name="USERID" />
+            </key>
+            <element type="string">
+                <column name="USERWIFIVISITINGHISTORIES" />
+            </element>
+        </set>
+        <set name="uservisitingsystemhistories" table="ABSTRACTUSER" inverse="false" lazy="true">
+            <key>
+                <column name="USERID" />
+            </key>
+            <element type="string">
+                <column name="USERVISITINGSYSTEMHISTORIES" />
+            </element>
+        </set>
+        <set name="ordermanages" table="ABSTRACTUSER" inverse="false" lazy="true">
+            <key>
+                <column name="USERID" />
+            </key>
+            <element type="string">
+                <column name="ORDERMANAGES" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>

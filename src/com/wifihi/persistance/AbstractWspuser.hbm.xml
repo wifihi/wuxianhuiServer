@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-7-30 17:17:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.wifihi.persistance.AbstractWspuser" table="ABSTRACTWSPUSER" abstract="true">
+        <id name="wspuser" type="java.lang.Long">
+            <column name="WSPUSER" />
+            <generator class="assigned" />
+        </id>
+        <discriminator type="string">
+            <column name="DISCR_COL" />
+        </discriminator>
+        <property name="phoneNumber" type="java.lang.String">
+            <column name="PHONENUMBER" />
+        </property>
+        <property name="qqnumber" type="java.lang.Long">
+            <column name="QQNUMBER" />
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="registrateDate" type="java.util.Date">
+            <column name="REGISTRATEDATE" />
+        </property>
+        <property name="registrateTime" type="java.sql.Time">
+            <column name="REGISTRATETIME" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="country" type="java.lang.String">
+            <column name="COUNTRY" />
+        </property>
+        <property name="province" type="java.lang.String">
+            <column name="PROVINCE" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        <property name="district" type="java.lang.String">
+            <column name="DISTRICT" />
+        </property>
+        <property name="detailAddress" type="java.lang.String">
+            <column name="DETAILADDRESS" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="showinfo" type="java.lang.String">
+            <column name="SHOWINFO" />
+        </property>
+        <set name="menuusers" table="ABSTRACTWSPUSER" inverse="false" lazy="true">
+            <key>
+                <column name="WSPUSER" />
+            </key>
+            <element type="string">
+                <column name="MENUUSERS" />
+            </element>
+        </set>
+        <set name="wifimanages" table="ABSTRACTWSPUSER" inverse="false" lazy="true">
+            <key>
+                <column name="WSPUSER" />
+            </key>
+            <element type="string">
+                <column name="WIFIMANAGES" />
+            </element>
+        </set>
+        <set name="goodsmanages" table="ABSTRACTWSPUSER" inverse="false" lazy="true">
+            <key>
+                <column name="WSPUSER" />
+            </key>
+            <element type="string">
+                <column name="GOODSMANAGES" />
+            </element>
+        </set>
+        <set name="wspuservisithistories" table="ABSTRACTWSPUSER" inverse="false" lazy="true">
+            <key>
+                <column name="WSPUSER" />
+            </key>
+            <element type="string">
+                <column name="WSPUSERVISITHISTORIES" />
+            </element>
+        </set>
+        <set name="ordermanages" table="ABSTRACTWSPUSER" inverse="false" lazy="true">
+            <key>
+                <column name="WSPUSER" />
+            </key>
+            <element type="string">
+                <column name="ORDERMANAGES" />
+            </element>
+        </set>
+        <set name="orderdetails" table="ABSTRACTWSPUSER" inverse="false" lazy="true">
+            <key>
+                <column name="WSPUSER" />
+            </key>
+            <element type="string">
+                <column name="ORDERDETAILS" />
+            </element>
+        </set>
+        <set name="tablemanages" table="ABSTRACTWSPUSER" inverse="false" lazy="true">
+            <key>
+                <column name="WSPUSER" />
+            </key>
+            <element type="string">
+                <column name="TABLEMANAGES" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>
