@@ -24,12 +24,13 @@ public class Wspuser extends AbstractWspuser implements java.io.Serializable {
 	public Wspuser(String phoneNumber, Long qqnumber, String userName,
 			Date registrateDate, Time registrateTime, String email,
 			String country, String province, String city, String district,
-			String detailAddress, String password, String showinfo,Set menuusers,
-			Set wifimanages, Set goodsmanages, Set wspuservisithistories,
-			Set ordermanages, Set orderdetails, Set tablemanages) {
+			String detailAddress, String password, String type,
+			String showinfo, Set menuusers, Set wifimanages, Set goodsmanages,
+			Set wspuservisithistories, Set ordermanages, Set orderdetails,
+			Set tablemanages) {
 		super(phoneNumber, qqnumber, userName, registrateDate, registrateTime,
 				email, country, province, city, district, detailAddress,
-				password, showinfo,menuusers, wifimanages, goodsmanages,
+				password, type, showinfo, menuusers, wifimanages, goodsmanages,
 				wspuservisithistories, ordermanages, orderdetails, tablemanages);
 	}
 

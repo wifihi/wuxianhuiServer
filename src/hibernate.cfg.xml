@@ -32,6 +32,7 @@
 			com.mysql.jdbc.Driver
 		</property>
 		<property name="myeclipse.connection.profile">mysql</property>
+		<mapping resource="com/wifihi/persistance/Menuuser.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/Goodsmanage.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/Ordermanage.hbm.xml" />
 		<mapping
@@ -40,10 +41,11 @@
 			resource="com/wifihi/persistance/Wspuservisithistory.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/Orderdetail.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/Tablemanage.hbm.xml" />
+		<mapping resource="com/wifihi/persistance/Tempid.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/Wifimanage.hbm.xml" />
+		<mapping resource="com/wifihi/persistance/Pushhistory.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/Menu.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/Wspuser.hbm.xml" />
-		<mapping resource="com/wifihi/persistance/Menuuser.hbm.xml" />
 		<mapping
 			resource="com/wifihi/persistance/Uservisitingsystemhistory.hbm.xml" />
 		<mapping resource="com/wifihi/persistance/User.hbm.xml" />

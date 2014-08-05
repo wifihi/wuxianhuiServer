@@ -15,18 +15,13 @@ public class User extends AbstractUser implements java.io.Serializable {
 	public User() {
 	}
 
-	/** minimal constructor */
-	public User(String phoneNumber) {
-		super(phoneNumber);
-	}
-
 	/** full constructor */
-	public User(String phoneNumber, Long qqnumber, String userName,
-			Date registrateDate, Time registrateTime, String password,String showInfo,
+	public User(String phonenumber, Long qqnumber, String userName,
+			Date registrateDate, Time registrateTime, String password,
 			Set userwifivisitinghistories, Set uservisitingsystemhistories,
 			Set ordermanages) {
-		super(phoneNumber, qqnumber, userName, registrateDate, registrateTime,
-				password,showInfo, userwifivisitinghistories,
+		super(phonenumber, qqnumber, userName, registrateDate, registrateTime,
+				password, userwifivisitinghistories,
 				uservisitingsystemhistories, ordermanages);
 	}
 

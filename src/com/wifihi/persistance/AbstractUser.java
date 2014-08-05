@@ -15,13 +15,12 @@ public abstract class AbstractUser implements java.io.Serializable {
 	// Fields
 
 	private Long userId;
-	private String phoneNumber;
+	private String phonenumber;
 	private Long qqnumber;
 	private String userName;
 	private Date registrateDate;
 	private Time registrateTime;
 	private String password;
-	private String showInfo;
 	private Set userwifivisitinghistories = new HashSet(0);
 	private Set uservisitingsystemhistories = new HashSet(0);
 	private Set ordermanages = new HashSet(0);
@@ -32,23 +31,17 @@ public abstract class AbstractUser implements java.io.Serializable {
 	public AbstractUser() {
 	}
 
-	/** minimal constructor */
-	public AbstractUser(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
 	/** full constructor */
-	public AbstractUser(String phoneNumber, Long qqnumber, String userName,
-			Date registrateDate, Time registrateTime, String password,String showInfo,
+	public AbstractUser(String phonenumber, Long qqnumber, String userName,
+			Date registrateDate, Time registrateTime, String password,
 			Set userwifivisitinghistories, Set uservisitingsystemhistories,
 			Set ordermanages) {
-		this.phoneNumber = phoneNumber;
+		this.phonenumber = phonenumber;
 		this.qqnumber = qqnumber;
 		this.userName = userName;
 		this.registrateDate = registrateDate;
 		this.registrateTime = registrateTime;
 		this.password = password;
-		this.showInfo = showInfo;
 		this.userwifivisitinghistories = userwifivisitinghistories;
 		this.uservisitingsystemhistories = uservisitingsystemhistories;
 		this.ordermanages = ordermanages;
@@ -64,12 +57,12 @@ public abstract class AbstractUser implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	public String getPhoneNumber() {
-		return this.phoneNumber;
+	public String getPhonenumber() {
+		return this.phonenumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
 	}
 
 	public Long getQqnumber() {
@@ -92,8 +85,8 @@ public abstract class AbstractUser implements java.io.Serializable {
 		return this.registrateDate;
 	}
 
-	public void setRegistrateDate(Date string) {
-		this.registrateDate = string;
+	public void setRegistrateDate(Date registrateDate) {
+		this.registrateDate = registrateDate;
 	}
 
 	public Time getRegistrateTime() {

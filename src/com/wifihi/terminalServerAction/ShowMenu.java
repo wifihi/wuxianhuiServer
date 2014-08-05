@@ -6,10 +6,10 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import org.hibernate.cfg.Configuration;
 import org.json.JSONObject;
 
-import com.wifihi.persistance.User;
 import com.wifihi.persistance.Wspuser;
 import com.wifihi.terminalServerService.WspShowInfo;
 import com.opensymphony.xwork2.ActionSupport;
@@ -34,8 +34,10 @@ public class ShowMenu extends ActionSupport implements ServletRequestAware{
 	}
 	
 	public String wspShowMenu(){
+	
 		Configuration conf = new Configuration().configure();
 		SessionFactory sf = conf.buildSessionFactory();
+	
 		JSONObject json = new JSONObject(this.reqContent);
 		String wspid = json.getString("wspid");
 		Wspuser wspuser = new Wspuser();
@@ -48,10 +50,14 @@ public class ShowMenu extends ActionSupport implements ServletRequestAware{
 			wspuser = (Wspuser) q.uniqueResult();
 			if(wspuser==null){
 				info.setInfo("error");
+				System.out.println(info.getInfo());
 			}
 			else
+			{
+				
 				info.setInfo(wspuser.getShowinfo());
-			
+				System.out.println(info.getInfo());
+			}
 		}catch(Exception e){
 			session.getTransaction().rollback();
 		}finally{

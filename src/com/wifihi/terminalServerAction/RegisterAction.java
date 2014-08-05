@@ -43,7 +43,7 @@ public class RegisterAction extends ActionSupport implements ServletRequestAware
 		String telNum = json.getString("tel");
 		User user = new User();
 		user.setPassword(passwd);
-		user.setPhoneNumber(telNum);
+		user.setPhonenumber(telNum);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		user.setRegistrateDate(sdf.parse(sdf.format(new Date())));
 		id= new IDString();
